@@ -1,0 +1,9 @@
+import {NavBar} from './NavBar';
+
+
+export function Contact(){
+    return <>
+    <NavBar />
+    <h1>Contact Page</h1>
+    </>
+}
