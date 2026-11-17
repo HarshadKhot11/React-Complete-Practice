@@ -1,8 +1,15 @@
 import Swal from 'sweetalert2';
 import {toast,Toaster} from 'sonner';
+import SimpleMap from  './SimpleMap';
+import {useState} from 'react';
+import SimpleQR from './SimpleQR';
+import { Dashboard } from './Dashboard';
+
 
 
 export function Order(){
+    let [show,setShow] = useState(false);
+    let [QR,setQR] = useState(false);
 
     async function HandelOrder(){
            const result = await Swal.fire(
@@ -65,7 +72,13 @@ export function Order(){
 
         <button onClick={HandelOrder}>Delete</button><br /><br />
 
-        <button onClick={FormHandling}>Form</button>
+        <button onClick={FormHandling}>Form</button><br />
+
+        <button onClick={()=>{setShow(true)}}>Map</button>
+        <button onClick={()=>{setQR(true)}}>Show QR</button>
+
+        {show && <SimpleMap />}
+        {QR && <SimpleQR />}
 
         <Toaster position='top-center' richColors/>
 
